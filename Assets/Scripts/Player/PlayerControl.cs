@@ -21,6 +21,12 @@ public class PlayerControl : MonoBehaviour
     public int extraJumpsValue;
     private bool jumpRequested = false;
 
+    
+    // Pulo sensível à duração da tecla
+    private bool isJumping;
+    public float jumpTime = 0.35f;
+    private float jumpTimeCounter;
+
     // Combate
     private float timeBtwAttack;
     public float startTimeBtwAttack;
@@ -55,6 +61,9 @@ public class PlayerControl : MonoBehaviour
 
     void Start()
     {
+
+        jumpTimeCounter = jumpTime;
+
         rb = GetComponent<Rigidbody2D>();
         rb.freezeRotation = true;
         originalGravity = rb.gravityScale;
@@ -78,10 +87,33 @@ public class PlayerControl : MonoBehaviour
             extraDashes = extraDashesValue;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        
+        if (Input.GetKeyDown(KeyCode.Space) && extraJumps > 0)
         {
-            jumpRequested = true;
+            rb.velocity = Vector2.up * jumpForce;
+            isJumping = true;
+            jumpTimeCounter = jumpTime;
+            extraJumps--;
         }
+
+        if (Input.GetKey(KeyCode.Space) && isJumping)
+        {
+            if (jumpTimeCounter > 0)
+            {
+                rb.velocity = Vector2.up * jumpForce;
+                jumpTimeCounter -= Time.deltaTime;
+            }
+            else
+            {
+                isJumping = false;
+            }
+        }
+
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            isJumping = false;
+        }
+
 
         if (!isDashing && extraDashes > 0 && Input.GetKeyDown(KeyCode.LeftShift))
         {
