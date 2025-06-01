@@ -1,0 +1,56 @@
+{
+    "name": "InputManager",
+    "maps": [
+        {
+            "name": "New action map",
+            "id": "581ff5d4-2ecd-44ac-8a60-4dd225045fbb",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "Button",
+                    "id": "adc0d47c-601d-4794-a662-4f79ad541199",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "138967b6-316b-45bb-8f68-c1ae4485bed6",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e445698d-b80a-4f42-871d-a208c6cb20ff",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8dc5597b-7804-4405-b6ea-73ceffe57945",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
